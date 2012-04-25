@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         
         list=(ListView)findViewById(R.id.list);
-        adapter=new LazyAdapter(this, mStrings);
+        adapter=new LazyAdapter(this, mStrings, mStrings, mStrings);
         list.setAdapter(adapter);
         
         Button b=(Button)findViewById(R.id.button1);
