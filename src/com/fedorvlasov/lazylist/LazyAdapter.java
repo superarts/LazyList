@@ -43,7 +43,7 @@ public class LazyAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.item, null);
+            vi = inflater.inflate(R.layout.lazylist_item, null);
 
         //	Log.v("mpire", names[position]);
         TextView text = (TextView)vi.findViewById(R.id.text);

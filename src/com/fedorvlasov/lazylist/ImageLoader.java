@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.ImageView;
 
 public class ImageLoader {
@@ -37,9 +38,13 @@ public class ImageLoader {
         imageViews.put(imageView, url);
         Bitmap bitmap=memoryCache.get(url);
         if(bitmap!=null)
+        {
+        		//	Log.v("mpire", "LOADER loaded image: " + url);
             imageView.setImageBitmap(bitmap);
+        }
         else
         {
+        		//	Log.v("mpire", "LOADER queued image: " + url);
             queuePhoto(url, imageView);
             imageView.setImageResource(stub_id);
         }
@@ -89,7 +94,7 @@ public class ImageLoader {
             BitmapFactory.decodeStream(new FileInputStream(f),null,o);
             
             //Find the correct scale value. It should be the power of 2.
-            final int REQUIRED_SIZE=70;
+            final int REQUIRED_SIZE = 70;
             int width_tmp=o.outWidth, height_tmp=o.outHeight;
             int scale=1;
             while(true){
