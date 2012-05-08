@@ -68,6 +68,8 @@ public class ImageLoader {
         //from web
         try {
             Bitmap bitmap=null;
+            if (url.equals(""))
+            		return null;
             URL imageUrl = new URL(url);
             HttpURLConnection conn = (HttpURLConnection)imageUrl.openConnection();
             conn.setConnectTimeout(30000);
